@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mos.ru</title>
+	<link rel="stylesheet" href="style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+</head>
+
+<!-- 
+Тестовое задание:
+— Сверстать адаптивно форму под ретину. Десктоп на дизайне. В мобильном (меньше 428px ширины) форма на весь экран, в одну колонку, остальное на усмотрение исполнителя.
+— Функциональность минимум: несколько городов в аккуратном выпадающем списке, смена пола - два разных radio, загрузка фото - input[type=“file”]. Остальная проработка формы на усмотрение исполнителя.
+— Браузеры: ИЕ9+, современные Safari, Chrome, FireFox
+ -->
+
+
+<body>
+
+<main>
+	<form class="form" action="#" method="post" autocomplete="on" name="form">
+		<section class="left">
+			<div class="container">
+				<legend>Ваши данные</legend>
+				<fieldset>
+					<input type="text" name="fio" autofocus required>
+					<input type="password" name="pass" required>
+					<input type="email" name="email" required>
+					<select name="city">
+						<option>Москва</option>
+						<option>Санкт-Питербург</option>
+						<option>Казань</option>
+					</select>
+					<input type="text" name="phone">
+
+					<div class="gender">
+						<label>
+							<input type="radio" name="gender" checked>
+							<span>Я - парень</span>
+						</label>
+						
+						<label>
+							<input type="radio" name="gender">
+							<span>Я - девушка</span>
+						</label>
+					</div>
+				</fieldset>
+			</div>
+
+		</section>
+		<section class="right">
+			<div class="container">
+				<legend>Важно знать!</legend>
+				<fieldset>
+					<div class="salut">
+						<img src="" alt="">
+						<ul>
+							<li>Развивайтесь не смотря ни на что</li>
+							<li>Не повторяйте за тем, кто повторяет</li>
+						</ul>
+					</div>
+
+					<div class="photo">
+						<label>
+						    
+						    	<input type="file">ЗАГРУЗИТЬ ФОТО
+						   
+						    
+						</label>
+					</div>
+
+					<div class="agree">
+						<label>
+							<input type="checkbox" name="agree" checked>
+							Я прочитал и соглашаюсь с <a href="">правилами</a> участия в акции
+						</label>
+					</div>
+					<button type="submit">Участвовать</button>
+				</fieldset>
+			</div>
+		</section>
+	</form>
+</main>
+
+<!-- 				<div class="gender">
+					<label>Я - парень
+						<input type="radio" name="gender" checked>
+					</label>
+					
+					<label>
+						<input type="radio" name="gender">Я - девушка
+					</label>
+				</div> -->
+</body>
+</html>
