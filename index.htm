@@ -25,23 +25,33 @@
 				<legend>Ваши данные</legend>
 				<fieldset>
 					<label>
-						<input type="text" name="fio" autofocus required placeholder="Введите ФИО"><span></span>
+						<input type="text" name="fio" autofocus required><span></span>
+						<span class="placeholder">Введите ФИО</span>
 					</label>
+
 					<label>
-						<input type="password" name="pass" required value="Пароль"><span></span>
+						<input type="password" name="pass" required><span></span>
+						<span class="placeholder">Пароль</span>
 					</label>
+
 					<label>
-						<input type="email" name="email" required value="Email"><span></span>
+						<input type="text" name="email" required><span></span>
+						<span class="placeholder">Email</span>
 					</label>
+
 					<label>
-						<select name="city">
+						<select>
 							<option>Москва</option>
-							<option>Санкт-Питербург</option>
+							<option>Санкт-Петербург</option>
 							<option>Казань</option>
 						</select>
+						<span class="placeholder">Город</span>
 					</label>
+
 					<label>
-						<input type="text" name="phone" value="Телефон">
+						<input type="tel" name="phone" required>
+						<span class="placeholder">Телефон</span>
+					</label>
 
 					<div class="gender">
 						<label>
