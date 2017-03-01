@@ -1,5 +1,6 @@
 :root
 	--screen calc(1em + 100vw/1000)
+	--transition .1s ease
 
 *
 	position relative
@@ -20,6 +21,7 @@ body
 	
 	*
 		font-size var(--screen)
+		margin 0
 		
 
 .form_container 
@@ -29,34 +31,258 @@ body
 	padding 2em
 	
 	.form
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		background-color: #FFF;
-		border-radius: .3em;
-		max-width: calc(1440px + 0em);
-		margin: auto;
-		box-shadow: 0 0 5em 0em rgb(37, 36, 113);
+		width 100%
+		display flex
+		flex-direction row
+		flex-wrap wrap
+		background-color #FFF
+		border-radius .3em
+		max-width 1440px
+		margin auto
+		box-shadow 0 0 5em 0em rgb(37, 36, 113)
 		a
-			text-decoration: none; color: #5b50c6;
+			text-decoration none 
+			color #5b50c6
 			
-
 	section
-		flex: 1 0 50%;
-		display: flex;
-		flex-direction: column;
-		padding: 2em;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-self: stretch;
-		justify-content: space-between;
+		flex 1 0 50%
+		display flex
+		flex-direction column
+		padding 2em
+
 		
-	legend 
-		padding: .3em 0 1em .8em;
-		letter-spacing: -0.05em;
-		font-size: 220%;
-		font-weight: 900;
-		color: #171b20;
-		white-space: nowrap;
+		.container 
+			height 100%
+			display flex
+			flex-direction column
+			align-self stretch
+			justify-content space-between
+		
+		legend 
+			padding .3em 0 1em .8em
+			letter-spacing -0.05em
+			font-size 220%
+			font-weight 900
+			color #171b20
+			white-space nowrap
+			
+		fieldset
+			display flex
+			flex-direction column
+			border 0
+			padding 0
+			
+			& input, & option, & select
+				padding var(--screen) 0
+				margin 0 0 1.5em 0
+				flex 1
+				width 100%
+				height 4.2em
+				text-indent var(--screen)
+				border .1em solid #abb4bd
+				border-radius .3em
+				outline none
+				
+			input, select
+				transition var(--transition)
+				
+				~ .placeholder
+					position absolute
+					color #808890
+					top 1em
+					line-height 0em
+					font-weight 600
+					padding var(--screen) 0
+					text-indent var(--screen)
+					transition var(--transition)
+					
+				&:focus, &:valid
+					border .1em solid #555
+					~ .placeholder
+						top .0
+						font-weight 400
+						font-size 70%
+						transition var(--transition)
+						
+				&.err:invalid
+					border .1em solid #d21010
+					~ .placeholder
+						color #d21010
+						
+			input[required] // добаволяю звездочки *
+				& + span
+					&:after
+						content '✱'
+						height 1em
+						width 1em
+						display block
+						color #d21010
+						position absolute
+						right -1.5em
+						top 0
+				&[type='tel'] + span:after // для телефона скрываю
+					display none
+				
+			input[type="password"] 
+				background url('/img/eye.png') no-repeat right
+			
+			select 
+				background url('/img/arrow.png') no-repeat right
+				appearance none
+				-webkit-appearance none
+				cursor pointer
+		
+		.gender
+			display flex
+			height 3em
+			
+			&:before
+				content ''
+				width 3.6em
+				height 2.06em
+				border .1em solid #8a7d7d
+				border-radius 3em
+				position absolute
+				left calc(50% - 1.8em)
+				
+			label
+				flex:1
+				cursor pointer
+				
+				span
+					line-height 1.8em
+					
+				&:first-child 
+					text-align right
+						
+				&:first-child input
+					float:right
+					margin 0 0 0 1.8em
+				&:last-child input
+					float:left
+					margin 0 1.8em 0 0
+					
+			input // переключатель мальчик/девочка
+				margin 0
+				flex none
+				width 1em
+				height 1.8em
+				cursor pointer
+				opacity 0
+				transition none
+				
+				&:checked // если вкл, то показать
+					opacity 1
+					&:after
+						content ''
+						opacity 1
+						display inline-block
+						width 1.6em
+						height 1.6em
+						border-radius 100%
+						background-color #5b50c6
+						border .1em solid #FFF
+						position absolute
+						left calc(50% + -0.8em)
+						top calc(50% + -0.8em)
+						z-index 20
+					& ~ span
+						color #5b50c6
+						
+		.salut 
+			display flex
+			align-items flex-start
+			margin 0 0 auto
+
+			ol 
+				font-weight 600
+				margin 0
+				padding 0 0 0 3em
+
+				li 
+					margin-bottom 1.5em
+					padding 0 .5em
+
+				span 
+					font-weight 300
+							
+		.photo
+			margin 0 0 auto 0
+	
+			input
+				display none
+		
+			label
+				cursor pointer
+				display block
+				background-color #ffc739
+				color #FFF
+				border-radius .5em .5em 0
+				line-height 11em
+				font-weight 600
+				text-align center
+				margin 2em 0
+				margin-right -2.7em
+				text-transform uppercase
+				transition var(--transition)
+
+				&:hover
+					background-color #ffb700
+
+				&:after
+					content ''
+					display block
+					position absolute
+					bottom -.7em
+					right 0
+					background #b58200
+					width 2em
+					height .8em
+					border-radius 0 0 .5em 0
+					z-index -1
+			
+				&:before
+					content ''
+					width calc(100% - 3em)
+					height calc(100% - 3em)
+					border .14em dashed #FFF
+					border-radius .5em
+					position absolute
+					left 1.5em
+					top 1.5em
+
+		.agree // согласен с условиями
+			input //убираю родной чекбокс
+				display none
+				& + .yes //замена на...
+					border .08em solid #abb4bd
+					border-radius .5em
+					width 1.7em
+					height 1.8em
+					float left
+					margin 0 .6em 3em 0
+					color #ffc739
+					cursor pointer
+				&:checked + .yes
+					display flex
+					justify-content center
+					align-items center
+					
+					&:after //галочка
+						content '√'
+						
+		button[type="submit"]
+			width 100%
+			text-align center
+			height 4em
+			background #2328ae
+			text-transform uppercase
+			border 0
+			border-radius 2em
+			color #FFF
+			padding 1em
+			cursor pointer
+			transition var(--transition)
+			
+			&:hover
+				background:#5b50c6

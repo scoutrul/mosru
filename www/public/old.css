@@ -82,7 +82,7 @@
 	}
 */
 
-	fieldset {
+/*	fieldset {
 		display: flex;
 		flex-direction: column;
 		border: 0;
@@ -103,9 +103,9 @@
 	    border-radius: .3em;
 	    outline: none;
 	}
+*/
 
-
-	input:focus {
+/*	input:focus {
 		    border: .1em solid #555;
 	}
 
@@ -119,8 +119,8 @@
 		padding: var(--screen) 0;
 		text-indent: var(--screen);
 		transition: .1s ease;
-	}
-	input:valid ~ .placeholder,
+	}*/
+/*	input:valid ~ .placeholder,
 	select:valid ~ .placeholder {
 		top: .0;
 		font-weight: 400;
@@ -138,13 +138,13 @@
 		top: 0;
 	}
 
-	input[type="tel"] + span:after {display: none}
+	input[type="tel"] + span:after {display: none}*/
 
 
 
 
 /* LEFT */
-
+/*
 
 input[type="password"] {
 	background: url(./img/eye.png) no-repeat right;
@@ -222,19 +222,19 @@ select {
 	top: calc(50% + -0.8em);
 	z-index: 20;
 }
+*/
 
 
-
-.gender input:checked ~ span {
+/*.gender input:checked ~ span {
 	color: #5b50c6
 }
 
-
+*/
 
 /* RIGHT */
 
 
-	.photo {
+/*	.photo {
 		    margin: 0 0 auto 0;
 	}
 
@@ -282,11 +282,11 @@ select {
 		position: absolute;
 		left: 1.5em;
 		top: 1.5em;
-	}
+	}*/
 
 
 
-	.salut {
+/*	.salut {
 	    display: flex;
 	    align-items: flex-start;
 	    margin: 0 0 auto;
@@ -305,11 +305,11 @@ select {
 
 	.salut ol span {
 	    font-weight: 300
-	}
+	}*/
 
 
 
-	.agree input {display: none}
+/*	.agree input {display: none}
 
 	.agree input + .yes {
 		border: .08em solid #abb4bd;
@@ -345,7 +345,7 @@ select {
 		background:#5b50c6
 	}
 
-
+*/
 
 
 

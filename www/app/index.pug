@@ -2,7 +2,6 @@ doctype html
 html(lang="en")
 	head
 		<meta charset="UTF-8">
-		link(rel="stylesheet" href="./old.css")
 		link(rel="stylesheet" href="./styles.css")
 		link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic")
 		title Форма для mos.ru
@@ -35,7 +34,7 @@ html(lang="en")
 									option Казань	
 								.placeholder Город
 							label
-								input(type="tel" name="phone" required)
+								input(type="tel" name="phone" )
 								span
 								.placeholder Телефон
 							.gender
@@ -65,4 +64,8 @@ html(lang="en")
 								input(type="checkbox" name="agree" checked)
 								span.yes
 								span Я прочитал и соглашаюсь с <a href="">правилами</a> участия в акции.
+
 						button(type="submit") Участвовать
+
+	//- //- script(src="./form_err.js")
+	//- по нажатию на кнопку что бы всем required input давался класс .err

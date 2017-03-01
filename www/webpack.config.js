@@ -46,7 +46,7 @@ module.exports = {
       aggregateTimeout: 100
     },
 
-    devtool: 'source-map',
+    // devtool: 'source-map',
 
     devServer: {
       contentBase: './public',
