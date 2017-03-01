@@ -1,41 +1,41 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
+
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
+
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/
+
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/
+
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
-/******/
+
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
-/******/
+
+
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-/******/
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
+
 /******/ 	// identity function for calling harmony imports with the correct context
 /******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
+
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -46,7 +46,7 @@
 /******/ 			});
 /******/ 		}
 /******/ 	};
-/******/
+
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
@@ -55,13 +55,13 @@
 /******/ 		__webpack_require__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
-/******/
+
 /******/ 	// Object.prototype.hasOwnProperty.call
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-/******/
+
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
@@ -78,7 +78,7 @@
 
 var pug = __webpack_require__(2);
 
-function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (pageTitle) {pug_html = pug_html + "\u003C!DOCTYPE html\u003E\u003Chtml lang=\"en\"\u003E\u003Chead\u003E\u003Cmeta charset=\"UTF-8\"\u003E\u003Clink rel=\"stylesheet\" href=\"..\u002Fpublic\u002Fstyles.css\"\u003E\u003Clink rel=\"stylesheet\" href=\"..\u002Fpublic\u002Fold.css\"\u003E\u003Clink rel=\"stylesheet\" href=\"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:300,400,500,700&amp;amp;subset=cyrillic\"\u003E\u003Ctitle\u003E" + (pug.escape(null == (pug_interp = pageTitle) ? "" : pug_interp)) + "\u003C\u002Ftitle\u003E\u003C\u002Fhead\u003E\u003Cbody\u003E\u003Cscript src=\"..\u002Fpublic\u002Fbundle.js\"\u003E\u003C\u002Fscript\u003E\u003Cmain\u003E\u003Cform class=\"form\" autocomplite=\"on\" name=\"form\"\u003E\u003Csection class=\"left\"\u003E\u003Cdiv class=\"container\"\u003E\u003Clegend\u003EВаши данные123\u003C\u002Flegend\u003E\u003Cfieldset\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003C\u002Fsection\u003E\u003C\u002Fform\u003E\u003C\u002Fmain\u003E\u003C\u002Fbody\u003E\u003C\u002Fhtml\u003E";}.call(this,"pageTitle" in locals_for_with?locals_for_with.pageTitle:typeof pageTitle!=="undefined"?pageTitle:undefined));;return pug_html;};
+function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003C!DOCTYPE html\u003E\u003Chtml lang=\"en\"\u003E\u003Chead\u003E\u003Cmeta charset=\"UTF-8\"\u003E\u003Clink rel=\"stylesheet\" href=\".\u002Fstyles.css\"\u003E\u003Clink rel=\"stylesheet\" href=\"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:300,400,500,700&amp;amp;subset=cyrillic\"\u003E\u003Ctitle\u003EФорма для mos.ru\u003C\u002Ftitle\u003E\u003C\u002Fhead\u003E\u003Cbody\u003E\u003Cscript src=\".\u002Fbundle.js\"\u003E\u003C\u002Fscript\u003E\u003Cmain class=\"form_container\"\u003E\u003Cform class=\"form\" autocomplite=\"on\" name=\"form\"\u003E\u003Csection class=\"left\"\u003E\u003Cdiv class=\"container\"\u003E\u003Clegend\u003EВаши данные\u003C\u002Flegend\u003E\u003Cfieldset\u003E\u003Clabel\u003E\u003Cinput class=\"required\" type=\"text\" name=\"fio\" autofocus required\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cdiv class=\"placeholder\"\u003EВведите ФИО\u003C\u002Fdiv\u003E\u003C\u002Flabel\u003E\u003Clabel\u003E\u003Cinput class=\"required\" type=\"password\" name=\"pass\" required\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cdiv class=\"placeholder\"\u003EПароль\u003C\u002Fdiv\u003E\u003C\u002Flabel\u003E\u003Clabel\u003E\u003Cinput class=\"required\" type=\"text\" name=\"email\" required\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cdiv class=\"placeholder\"\u003EEmail\u003C\u002Fdiv\u003E\u003C\u002Flabel\u003E\u003Clabel\u003E\u003Cselect\u003E\u003Coption\u003EМосква\t\u003C\u002Foption\u003E\u003Coption\u003EСанкт-Петербург\t\u003C\u002Foption\u003E\u003Coption\u003EКазань\t\u003C\u002Foption\u003E\u003C\u002Fselect\u003E\u003Cdiv class=\"placeholder\"\u003EГород\u003C\u002Fdiv\u003E\u003C\u002Flabel\u003E\u003Clabel\u003E\u003Cinput type=\"tel\" name=\"phone\" onFocus=\"this.className='norequired'\" onBlur=\"this.className=''\"\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cdiv class=\"placeholder\"\u003EТелефон\u003C\u002Fdiv\u003E\u003C\u002Flabel\u003E\u003Cdiv class=\"gender\"\u003E\u003Clabel\u003E\u003Cinput type=\"radio\" name=\"gender\" checked\u003E\u003Cspan\u003EЯ - парень\u003C\u002Fspan\u003E\u003C\u002Flabel\u003E\u003Clabel\u003E\u003Cinput type=\"radio\" name=\"gender\"\u003E\u003Cspan\u003EЯ - девушка\u003C\u002Fspan\u003E\u003C\u002Flabel\u003E\u003C\u002Fdiv\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003C\u002Fsection\u003E\u003Csection class=\"right\"\u003E\u003Cdiv class=\"container\"\u003E\u003Clegend\u003EВажно знать!\u003C\u002Flegend\u003E\u003Cdiv class=\"salut\"\u003E\u003Cimg src=\".\u002Fimg\u002Fpic.png\" alt=\"картинка\"\u003E\u003Col\u003E\u003Cli\u003E\u003Cspan\u003EРазвивайтесь не смотря ни на что\u003C\u002Fspan\u003E\u003C\u002Fli\u003E\u003Cli\u003E\u003Cspan\u003EНе повторяйте за тем, кто повторяет\u003C\u002Fspan\u003E\u003C\u002Fli\u003E\u003C\u002Fol\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"photo\"\u003E\u003Clabel\u003E\u003Cinput type=\"file\"\u003E\u003Cspan\u003EЗагрузить фото\u003C\u002Fspan\u003E\u003C\u002Flabel\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"agree\"\u003E\u003Clabel\u003E\u003Cinput type=\"checkbox\" name=\"agree\" checked\u003E\u003Cspan class=\"yes\"\u003E\u003C\u002Fspan\u003E\u003Cspan\u003EЯ прочитал и соглашаюсь с \u003Ca href=\"\"\u003Eправилами\u003C\u002Fa\u003E участия в акции.\u003C\u002Fspan\u003E\u003C\u002Flabel\u003E\u003C\u002Fdiv\u003E\u003Cbutton type=\"submit\"\u003EУчаствовать\u003C\u002Fbutton\u003E\u003C\u002Fdiv\u003E\u003C\u002Fsection\u003E\u003C\u002Fform\u003E\u003C\u002Fmain\u003E\u003C\u002Fbody\u003E\u003C\u002Fhtml\u003E";;return pug_html;};
 module.exports = template;
 
 /***/ }),
@@ -369,4 +369,3 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.js.map

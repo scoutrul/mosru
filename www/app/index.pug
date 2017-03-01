@@ -16,25 +16,26 @@ html(lang="en")
 						legend Ваши данные
 						fieldset
 							label
-								input(type="text" name="fio" autofocus required)
+								input(type="text" name="fio" autofocus required class="required")
 								span
 								.placeholder Введите ФИО
 							label
-								input(type="password" name="pass" required)
+								input(type="password" name="pass" required class="required")
 								span
 								.placeholder Пароль
 							label
-								input(type="text" name="email" required)
+								input(type="text" name="email" required class="required")
 								span
 								.placeholder Email
 							label
-								select
+								select.required
+									option 	
 									option Москва	
 									option Санкт-Петербург	
 									option Казань	
 								.placeholder Город
 							label
-								input(type="tel" name="phone" )
+								input(type="number" name="phone"  class="norequired")
 								span
 								.placeholder Телефон
 							.gender

@@ -35,8 +35,8 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin("styles.css"),
-        new HtmlWebpackPlugin(),
-        new HtmlWebpackPlugin({  // Also generate a test.html 
+
+        new HtmlWebpackPlugin({ 
           filename: 'index.html',
           template: './app/index.pug'
         })

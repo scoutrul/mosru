@@ -1,5 +1,322 @@
-body {
-  background: #808080;
+:root {
+  --screen: calc(1em + 100vw / 1000);
+  --transition: 0.1s ease;
 }
-
-/*# sourceMappingURL=styles.css.map*/
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: #856ed7;
+  line-height: 2em;
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--screen);
+  margin: 0;
+  background: -webkit-linear-gradient(-45deg, #856ed8 0%, #2329ae 100%) fixed;
+  font-weight: 300;
+  color: #2a2e33;
+}
+body * {
+  font-size: var(--screen);
+  margin: 0;
+}
+.form_container {
+  height: 100%;
+  display: flex;
+  margin: auto;
+  padding: 2em;
+}
+.form_container .form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 0.3em;
+  max-width: 1440px;
+  margin: auto;
+  box-shadow: 0 0 5em 0em #252471;
+}
+.form_container .form a {
+  text-decoration: none;
+  color: #5b50c6;
+}
+.form_container section {
+  flex: 1 0 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+.form_container section .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: space-between;
+}
+.form_container section legend {
+  padding: 0.3em 0 1em 0.8em;
+  letter-spacing: -0.05em;
+  font-size: 220%;
+  font-weight: 900;
+  color: #171b20;
+  white-space: nowrap;
+}
+.form_container section fieldset {
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  padding: 0;
+}
+.form_container section fieldset input,
+.form_container section fieldset option,
+.form_container section fieldset select {
+  padding: var(--screen) 0;
+  margin: 0 0 1.5em 0;
+  flex: 1;
+  width: 100%;
+  height: 4.2em;
+  text-indent: var(--screen);
+  border: 0.1em solid #abb4bd;
+  border-radius: 0.3em;
+  outline: none;
+}
+.form_container section fieldset input,
+.form_container section fieldset select {
+  transition: var(--transition);
+}
+.form_container section fieldset input ~ .placeholder,
+.form_container section fieldset select ~ .placeholder {
+  position: absolute;
+  color: #808890;
+  top: 1em;
+  line-height: 0em;
+  font-weight: 600;
+  padding: var(--screen) 0;
+  text-indent: var(--screen);
+  transition: var(--transition);
+}
+.form_container section fieldset input:focus,
+.form_container section fieldset select:focus,
+.form_container section fieldset input:valid,
+.form_container section fieldset select:valid {
+  border: 0.1em solid #555;
+}
+.form_container section fieldset input:focus ~ .placeholder,
+.form_container section fieldset select:focus ~ .placeholder,
+.form_container section fieldset input:valid ~ .placeholder,
+.form_container section fieldset select:valid ~ .placeholder {
+  top: 0;
+  font-weight: 400;
+  font-size: 70%;
+  transition: var(--transition);
+}
+.form_container section fieldset input.err:invalid,
+.form_container section fieldset select.err:invalid {
+  border: 0.1em solid #d21010;
+}
+.form_container section fieldset input.err:invalid ~ .placeholder,
+.form_container section fieldset select.err:invalid ~ .placeholder {
+  color: #d21010;
+}
+.form_container section fieldset .norequired ~ .placeholder {
+  position: absolute;
+  color: #808890;
+  top: 1em;
+  line-height: 0em;
+  font-weight: 600;
+  padding: var(--screen) 0;
+  text-indent: var(--screen);
+  transition: var(--transition);
+}
+.form_container section fieldset .norequired:focus {
+  border: 0.1em solid #555;
+}
+.form_container section fieldset .norequired:focus ~ .placeholder {
+  top: 0;
+  font-weight: 400;
+  font-size: 70%;
+  transition: var(--transition);
+}
+.form_container section fieldset input[required] + span:after {
+  content: '\2731';
+  height: 1em;
+  width: 1em;
+  display: block;
+  color: #d21010;
+  position: absolute;
+  right: -1.5em;
+  top: 0;
+}
+.form_container section fieldset input[type="password"] {
+  background: url("/img/eye.png") no-repeat right;
+}
+.form_container section fieldset select {
+  background: url("/img/arrow.png") no-repeat right;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.form_container section .gender {
+  display: flex;
+  height: 3em;
+}
+.form_container section .gender:before {
+  content: '';
+  width: 3.6em;
+  height: 2.06em;
+  border: 0.1em solid #8a7d7d;
+  border-radius: 3em;
+  position: absolute;
+  left: calc(50% - 1.8em);
+}
+.form_container section .gender label {
+  flex: 1;
+  cursor: pointer;
+}
+.form_container section .gender label span {
+  line-height: 1.8em;
+}
+.form_container section .gender label:first-child {
+  text-align: right;
+}
+.form_container section .gender label:first-child input {
+  float: right;
+  margin: 0 0 0 1.8em;
+}
+.form_container section .gender label:last-child input {
+  float: left;
+  margin: 0 1.8em 0 0;
+}
+.form_container section .gender input {
+  margin: 0;
+  flex: none;
+  width: 1em;
+  height: 1.8em;
+  cursor: pointer;
+  opacity: 0;
+  transition: none;
+}
+.form_container section .gender input:checked {
+  opacity: 1;
+}
+.form_container section .gender input:checked:after {
+  content: '';
+  opacity: 1;
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 100%;
+  background-color: #5b50c6;
+  border: 0.1em solid #fff;
+  position: absolute;
+  left: calc(50% + -0.8em);
+  top: calc(50% + -0.8em);
+  z-index: 20;
+}
+.form_container section .gender input:checked ~ span {
+  color: #5b50c6;
+}
+.form_container section .salut {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 auto;
+}
+.form_container section .salut ol {
+  font-weight: 600;
+  margin: 0;
+  padding: 0 0 0 3em;
+}
+.form_container section .salut ol li {
+  margin-bottom: 1.5em;
+  padding: 0 0.5em;
+}
+.form_container section .salut ol span {
+  font-weight: 300;
+}
+.form_container section .photo {
+  margin: 0 0 auto 0;
+}
+.form_container section .photo input {
+  display: none;
+}
+.form_container section .photo label {
+  cursor: pointer;
+  display: block;
+  background-color: #ffc739;
+  color: #fff;
+  border-radius: 0.5em 0.5em 0;
+  line-height: 11em;
+  font-weight: 600;
+  text-align: center;
+  margin: 2em 0;
+  margin-right: -2.7em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+.form_container section .photo label:hover {
+  background-color: #ffb700;
+}
+.form_container section .photo label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -0.7em;
+  right: 0;
+  background: #b58200;
+  width: 2em;
+  height: 0.8em;
+  border-radius: 0 0 0.5em 0;
+  z-index: -1;
+}
+.form_container section .photo label:before {
+  content: '';
+  width: calc(100% - 3em);
+  height: calc(100% - 3em);
+  border: 0.14em dashed #fff;
+  border-radius: 0.5em;
+  position: absolute;
+  left: 1.5em;
+  top: 1.5em;
+}
+.form_container section .agree input {
+  display: none;
+}
+.form_container section .agree input + .yes {
+  border: 0.08em solid #abb4bd;
+  border-radius: 0.5em;
+  width: 1.7em;
+  height: 1.8em;
+  float: left;
+  margin: 0 0.6em 3em 0;
+  color: #ffc739;
+  cursor: pointer;
+}
+.form_container section .agree input:checked + .yes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form_container section .agree input:checked + .yes:after {
+  content: '\221A';
+}
+.form_container section button[type="submit"] {
+  width: 100%;
+  text-align: center;
+  height: 4em;
+  background: #2328ae;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 2em;
+  color: #fff;
+  padding: 1em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.form_container section button[type="submit"]:hover {
+  background: #5b50c6;
+}

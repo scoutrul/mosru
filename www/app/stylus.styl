@@ -83,7 +83,10 @@ body
 				border-radius .3em
 				outline none
 				
-			input, select
+
+
+					
+			input.required, select.required
 				transition var(--transition)
 				
 				~ .placeholder
@@ -109,7 +112,28 @@ body
 					~ .placeholder
 						color #d21010
 						
-			input[required] // добаволяю звездочки *
+			.norequired:optional:invalid 
+				transition var(--transition)
+				~ .placeholder
+					position absolute
+					color #808890
+					top 1em
+					line-height 0em
+					font-weight 600
+					padding var(--screen) 0
+					text-indent var(--screen)
+					transition var(--transition)
+					
+				&:valid
+					border .1em solid #555
+					~ .placeholder
+						top .0
+						font-weight 400
+						font-size 70%
+						transition var(--transition)
+						
+
+			input[required]// добаволяю звездочки *
 				& + span
 					&:after
 						content '✱'
@@ -120,8 +144,6 @@ body
 						position absolute
 						right -1.5em
 						top 0
-				&[type='tel'] + span:after // для телефона скрываю
-					display none
 				
 			input[type="password"] 
 				background url('/img/eye.png') no-repeat right
