@@ -27,7 +27,7 @@ body * {
 .form_container {
   height: 100%;
   display: flex;
-  margin: auto;
+  margin: auto auto 2em auto;
   padding: 2em;
 }
 .form_container .form {
@@ -66,15 +66,16 @@ body * {
   color: #171b20;
   white-space: nowrap;
 }
-.form_container section fieldset {
+.form_container section .fieldset {
+  height: 100%;
   display: flex;
   flex-direction: column;
   border: 0;
   padding: 0;
 }
-.form_container section fieldset input,
-.form_container section fieldset option,
-.form_container section fieldset select {
+.form_container section .fieldset input,
+.form_container section .fieldset option,
+.form_container section .fieldset select {
   padding: var(--screen) 0;
   margin: 0 0 1.5em 0;
   flex: 1;
@@ -85,12 +86,12 @@ body * {
   border-radius: 0.3em;
   outline: none;
 }
-.form_container section fieldset input,
-.form_container section fieldset select {
+.form_container section .fieldset input.required,
+.form_container section .fieldset select.required {
   transition: var(--transition);
 }
-.form_container section fieldset input ~ .placeholder,
-.form_container section fieldset select ~ .placeholder {
+.form_container section .fieldset input.required ~ .placeholder,
+.form_container section .fieldset select.required ~ .placeholder {
   position: absolute;
   color: #808890;
   top: 1em;
@@ -100,30 +101,33 @@ body * {
   text-indent: var(--screen);
   transition: var(--transition);
 }
-.form_container section fieldset input:focus,
-.form_container section fieldset select:focus,
-.form_container section fieldset input:valid,
-.form_container section fieldset select:valid {
+.form_container section .fieldset input.required:focus,
+.form_container section .fieldset select.required:focus,
+.form_container section .fieldset input.required:valid,
+.form_container section .fieldset select.required:valid {
   border: 0.1em solid #555;
 }
-.form_container section fieldset input:focus ~ .placeholder,
-.form_container section fieldset select:focus ~ .placeholder,
-.form_container section fieldset input:valid ~ .placeholder,
-.form_container section fieldset select:valid ~ .placeholder {
+.form_container section .fieldset input.required:focus ~ .placeholder,
+.form_container section .fieldset select.required:focus ~ .placeholder,
+.form_container section .fieldset input.required:valid ~ .placeholder,
+.form_container section .fieldset select.required:valid ~ .placeholder {
   top: 0;
   font-weight: 400;
   font-size: 70%;
   transition: var(--transition);
 }
-.form_container section fieldset input.err:invalid,
-.form_container section fieldset select.err:invalid {
+.form_container section .fieldset input.required.err:invalid,
+.form_container section .fieldset select.required.err:invalid {
   border: 0.1em solid #d21010;
 }
-.form_container section fieldset input.err:invalid ~ .placeholder,
-.form_container section fieldset select.err:invalid ~ .placeholder {
+.form_container section .fieldset input.required.err:invalid ~ .placeholder,
+.form_container section .fieldset select.required.err:invalid ~ .placeholder {
   color: #d21010;
 }
-.form_container section fieldset .norequired ~ .placeholder {
+.form_container section .fieldset .norequired:optional:invalid {
+  transition: var(--transition);
+}
+.form_container section .fieldset .norequired:optional:invalid ~ .placeholder {
   position: absolute;
   color: #808890;
   top: 1em;
@@ -133,16 +137,16 @@ body * {
   text-indent: var(--screen);
   transition: var(--transition);
 }
-.form_container section fieldset .norequired:focus {
+.form_container section .fieldset .norequired:optional:invalid:valid {
   border: 0.1em solid #555;
 }
-.form_container section fieldset .norequired:focus ~ .placeholder {
+.form_container section .fieldset .norequired:optional:invalid:valid ~ .placeholder {
   top: 0;
   font-weight: 400;
   font-size: 70%;
   transition: var(--transition);
 }
-.form_container section fieldset input[required] + span:after {
+.form_container section .fieldset input[required] + span:after {
   content: '\2731';
   height: 1em;
   width: 1em;
@@ -152,10 +156,10 @@ body * {
   right: -1.5em;
   top: 0;
 }
-.form_container section fieldset input[type="password"] {
+.form_container section .fieldset input[type="password"] {
   background: url("/img/eye.png") no-repeat right;
 }
-.form_container section fieldset select {
+.form_container section .fieldset select {
   background: url("/img/arrow.png") no-repeat right;
   appearance: none;
   -webkit-appearance: none;
@@ -164,6 +168,7 @@ body * {
 .form_container section .gender {
   display: flex;
   height: 3em;
+  width: 100%;
 }
 .form_container section .gender:before {
   content: '';
@@ -180,6 +185,11 @@ body * {
 }
 .form_container section .gender label span {
   line-height: 1.8em;
+  word-break: break-all;
+  margin-left: 5%;
+}
+.form_container section .gender label span:last-child {
+  margin-left: 1.8em;
 }
 .form_container section .gender label:first-child {
   text-align: right;

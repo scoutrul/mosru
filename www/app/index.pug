@@ -14,7 +14,7 @@ html(lang="en")
 				section.left
 					.container
 						legend Ваши данные
-						fieldset
+						div.fieldset
 							label
 								input(type="text" name="fio" autofocus required class="required")
 								span
@@ -35,7 +35,7 @@ html(lang="en")
 									option Казань	
 								.placeholder Город
 							label
-								input(type="number" name="phone"  class="norequired")
+								input(type="tel" name="phone"  class="norequired")
 								span
 								.placeholder Телефон
 							.gender
@@ -49,8 +49,9 @@ html(lang="en")
 				section.right
 					.container
 						legend Важно знать!
-						.salut
-							img(src="./img/pic.png" alt="картинка")
+						.someinfo
+							.img
+								
 							ol
 								li
 									span Развивайтесь не смотря ни на что

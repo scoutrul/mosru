@@ -1,5 +1,5 @@
 :root
-	--screen calc(1em + 100vw/1000)
+	--screen calc(1em + 90vw/1000)
 	--transition .1s ease
 
 *
@@ -27,10 +27,11 @@ body
 .form_container 
 	height 100%
 	display flex
-	margin auto
+	margin auto auto 2em auto
 	padding 2em
 	
 	.form
+		min-height: 100%;
 		width 100%
 		display flex
 		flex-direction row
@@ -59,104 +60,112 @@ body
 			justify-content space-between
 		
 		legend 
-			padding .3em 0 1em .8em
+			padding .3em 0 1em 5%
 			letter-spacing -0.05em
 			font-size 220%
 			font-weight 900
 			color #171b20
 			white-space nowrap
 			
-		fieldset
+		.fieldset
+			height 100%
 			display flex
 			flex-direction column
 			border 0
 			padding 0
+			justify-content: space-around;
 			
-			& input, & option, & select
-				padding var(--screen) 0
-				margin 0 0 1.5em 0
-				flex 1
-				width 100%
+				
+			label
 				height 4.2em
-				text-indent var(--screen)
-				border .1em solid #abb4bd
-				border-radius .3em
-				outline none
-				
+				margin 0 0 1.5em 0
 
-
-					
-			input.required, select.required
-				transition var(--transition)
-				
-				~ .placeholder
-					position absolute
-					color #808890
-					top 1em
-					line-height 0em
-					font-weight 600
+				input, option, select
 					padding var(--screen) 0
+					flex 1
+					width 100%
+					height 4.2em
 					text-indent var(--screen)
+					border .1em solid #abb4bd
+					border-radius .3em
+					outline none
+				
+				input.required, select.required
 					transition var(--transition)
 					
-				&:focus, &:valid
-					border .1em solid #555
 					~ .placeholder
-						top .0
-						font-weight 400
-						font-size 70%
-						transition var(--transition)
-						
-				&.err:invalid
-					border .1em solid #d21010
-					~ .placeholder
-						color #d21010
-						
-			.norequired:optional:invalid 
-				transition var(--transition)
-				~ .placeholder
-					position absolute
-					color #808890
-					top 1em
-					line-height 0em
-					font-weight 600
-					padding var(--screen) 0
-					text-indent var(--screen)
-					transition var(--transition)
-					
-				&:valid
-					border .1em solid #555
-					~ .placeholder
-						top .0
-						font-weight 400
-						font-size 70%
-						transition var(--transition)
-						
-
-			input[required]// добаволяю звездочки *
-				& + span
-					&:after
-						content '✱'
-						height 1em
-						width 1em
-						display block
-						color #d21010
 						position absolute
-						right -1.5em
-						top 0
+						color #808890
+						top 1em
+						line-height 0em
+						font-weight 600
+						padding var(--screen) 0
+						text-indent var(--screen)
+						transition var(--transition)
+						
+					&:focus
+						border .1em solid #555
+						
+					&:focus,&:valid
+						border .1em solid #555
+					
+						~ .placeholder
+							top .0
+							font-weight 400
+							font-size 70%
+							transition var(--transition)
+							
+					&.err:invalid
+						border .1em solid #d21010
+						~ .placeholder
+							color #d21010
+							
+				.norequired:optional:invalid 
+					transition var(--transition)
+					~ .placeholder
+						position absolute
+						color #808890
+						top 1em
+						line-height 0em
+						font-weight 600
+						padding var(--screen) 0
+						text-indent var(--screen)
+						transition var(--transition)
+						
+					&:valid
+						border .1em solid #555
+						~ .placeholder
+							top .0
+							font-weight 400
+							font-size 70%
+							transition var(--transition)
+							
+
+				input[required]// добаволяю звездочки *
+					& + span
+						&:after
+							content '✱'
+							height 1em
+							width 1em
+							display block
+							color #d21010
+							position absolute
+							right -1.5em
+							top 0
+					
+				input[type="password"] 
+					background url('/img/eye.png') no-repeat right
 				
-			input[type="password"] 
-				background url('/img/eye.png') no-repeat right
+				select 
+					background url('/img/arrow.png') no-repeat right
+					appearance none
+					-webkit-appearance none
+					cursor pointer
 			
-			select 
-				background url('/img/arrow.png') no-repeat right
-				appearance none
-				-webkit-appearance none
-				cursor pointer
-		
 		.gender
 			display flex
 			height 3em
+			width: 100%;
 			
 			&:before
 				content ''
@@ -168,58 +177,72 @@ body
 				left calc(50% - 1.8em)
 				
 			label
-				flex:1
+				flex 1
 				cursor pointer
+				&:first-child
+					text-align right
+					
+				&:first-child input
+					float: right;
+					margin: 0 0 0 1em;
+					 
+				&:last-child input
+					float: left;
+					margin: 0 1em 0 0;
 				
 				span
 					line-height 1.8em
+					word-break: break-all;
 					
-				&:first-child 
-					text-align right
-						
-				&:first-child input
-					float:right
-					margin 0 0 0 1.8em
-				&:last-child input
-					float:left
-					margin 0 1.8em 0 0
 					
-			input // переключатель мальчик/девочка
-				margin 0
-				flex none
-				width 1em
-				height 1.8em
-				cursor pointer
-				opacity 0
-				transition none
-				
-				&:checked // если вкл, то показать
-					opacity 1
-					&:after
-						content ''
+				input // переключатель мальчик/девочка
+					margin 0
+					flex none
+					width 1em
+					height 1.8em
+					cursor pointer
+					opacity 0
+					transition none
+
+					
+					&:checked // если вкл, то показать
 						opacity 1
-						display inline-block
-						width 1.6em
-						height 1.6em
-						border-radius 100%
-						background-color #5b50c6
-						border .1em solid #FFF
-						position absolute
-						left calc(50% + -0.8em)
-						top calc(50% + -0.8em)
-						z-index 20
-					& ~ span
-						color #5b50c6
+						&:after
+							content ''
+							opacity 1
+							display inline-block
+							width 1.6em
+							height 1.6em
+							border-radius 100%
+							background-color #5b50c6
+							border .1em solid #FFF
+							position absolute
+							left calc(50% + -0.8em)
+							top calc(50% + -0.8em)
+							z-index 20
+						& ~ span
+							color #5b50c6
 						
-		.salut 
-			display flex
-			align-items flex-start
-			margin 0 0 auto
+		.someinfo 
+			display: flex;
+			justify-content: center;
+			margin: 0 0 auto;
+			flex-wrap: wrap;
+			
+			
+			.img
+				width: 7em;
+				height: 7em;
+				background: url(/img/pic.png) center top no-repeat;
+				background-size: contain;
+				margin-bottom: 2em;
 
 			ol 
 				font-weight 600
 				margin 0
 				padding 0 0 0 3em
+				width: calc(100% - 7em);
+				flex: 1 0 9em;
 
 				li 
 					margin-bottom 1.5em
@@ -274,6 +297,8 @@ body
 					top 1.5em
 
 		.agree // согласен с условиями
+			margin: 0 0 3em 0;
+			
 			input //убираю родной чекбокс
 				display none
 				& + .yes //замена на...
@@ -282,7 +307,7 @@ body
 					width 1.7em
 					height 1.8em
 					float left
-					margin 0 .6em 3em 0
+					margin 0 .6em 0
 					color #ffc739
 					cursor pointer
 				&:checked + .yes
