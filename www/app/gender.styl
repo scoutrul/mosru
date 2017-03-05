@@ -1,0 +1,62 @@
+.form
+	
+	.gender
+		display flex
+		height 3em
+		width: 100%;
+		
+		&:before
+			content ''
+			width 3.6em
+			height 2.06em
+			border .1em solid #8a7d7d
+			border-radius 3em
+			position absolute
+			left calc(50% - 1.8em)
+			
+		label
+			flex 1
+			cursor pointer
+			&:first-child
+				text-align right
+				
+			&:first-child input
+				float: right;
+				margin: 0 0 0 1em;
+				 
+			&:last-child input
+				float: left;
+				margin: 0 1em 0 0;
+			
+			span
+				line-height 1.8em
+				word-break: break-all;
+				
+				
+			input // переключатель мальчик/девочка
+				margin 0
+				flex none
+				width 1em
+				height 1.8em
+				cursor pointer
+				opacity 0
+				transition none
+
+				
+				&:checked // если вкл, то показать
+					opacity 1
+					&:after
+						content ''
+						opacity 1
+						display inline-block
+						width 1.6em
+						height 1.6em
+						border-radius 100%
+						background-color #5b50c6
+						border .1em solid #FFF
+						position absolute
+						left calc(50% + -0.8em)
+						top calc(50% + -0.8em)
+						z-index 20
+					& ~ span
+						color #5b50c6

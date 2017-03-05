@@ -23,18 +23,18 @@ html(lang="en")
 								span
 								.placeholder Пароль
 							label
-								input(type="text" name="email" required)
+								input(type="text" name="email" required )
 								span
 								.placeholder Email
 							label
-								select.list
-									option 	
+								select#list(name="city" onChange="list.className='placeholder_in'")
+									option(selected disabled) 
 									option Москва	
 									option Санкт-Петербург	
 									option Казань	
 								.placeholder Город
 							label
-								input(type="tel" name="phone"  class="norequired")
+								input#tel.placeholder_out(type="tel" name="phone" onkeyup="tel.value !== '' ? tel.className='placeholder_in' : tel.className='placeholder_out'")
 								span
 								.placeholder Телефон
 							.gender
