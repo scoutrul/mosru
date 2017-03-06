@@ -1,7 +1,3 @@
-:root {
-  --screen: calc(1em + 90vw / 1000);
-  --transition: 0.1s ease;
-}
 * {
   position: relative;
   box-sizing: border-box;
@@ -14,18 +10,19 @@ body {
   background-color: #856ed7;
   line-height: 2em;
   font-family: 'Roboto', sans-serif;
-  font-size: var(--screen);
+  font-size: calc(100% + 0.1vw);
   margin: 0;
   background: -webkit-linear-gradient(-45deg, #856ed8 0%, #2329ae 100%) fixed;
   font-weight: 300;
   color: #2a2e33;
 }
 body * {
-  font-size: var(--screen);
   margin: 0;
 }
 .form_container {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: auto auto 2em auto;
   padding: 2em;
@@ -33,9 +30,15 @@ body * {
 .form_container .form {
   min-height: 100%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   background-color: #fff;
   border-radius: 0.3em;
   max-width: 1440px;
@@ -47,17 +50,32 @@ body * {
   color: #5b50c6;
 }
 .form_container .form section {
-  flex: 1 0 50%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 2em;
 }
 .form_container .form section .container {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-self: stretch;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .form_container .form section .container legend {
   padding: 0.3em 0 1em 5%;
@@ -69,11 +87,17 @@ body * {
 }
 .form_container .form section .container .fieldset {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border: 0;
   padding: 0;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 .fieldset label {
   height: 4.2em;
@@ -84,67 +108,48 @@ body * {
 }
 .fieldset label select#list {
   background: url("/img/arrow.png") right no-repeat;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
 }
 .fieldset label input,
 .fieldset label option,
 .fieldset label select#list {
-  padding: var(--screen) 0;
-  flex: 1;
+  box-shadow: none;
+  padding: 1em 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   width: 100%;
   height: 4.2em;
-  text-indent: var(--screen);
+  text-indent: 1em;
   border: 0.1em solid #abb4bd;
   border-radius: 0.3em;
   outline: none;
-  transition: var(--transition);
+  -webkit-transition: 0.1s ease;
+  transition: 0.1s ease;
 }
-.fieldset label input:focus,
-.fieldset label option:focus,
-.fieldset label select#list:focus,
-.fieldset label input:valid:focus,
-.fieldset label option:valid:focus,
-.fieldset label select#list:valid:focus,
-.fieldset label input:valid:not(#list),
-.fieldset label option:valid:not(#list),
-.fieldset label select#list:valid:not(#list) {
-  border: 0.1em solid #555;
-}
-.fieldset label input:focus ~ .placeholder,
-.fieldset label option:focus ~ .placeholder,
-.fieldset label select#list:focus ~ .placeholder,
-.fieldset label input:valid:focus ~ .placeholder,
-.fieldset label option:valid:focus ~ .placeholder,
-.fieldset label select#list:valid:focus ~ .placeholder,
-.fieldset label input:valid:not(#list) ~ .placeholder,
-.fieldset label option:valid:not(#list) ~ .placeholder,
-.fieldset label select#list:valid:not(#list) ~ .placeholder {
+.fieldset label input:valid ~ .placeholder,
+.fieldset label option:valid ~ .placeholder,
+.fieldset label select#list:valid ~ .placeholder {
   top: 0;
   font-weight: 400;
   font-size: 70%;
 }
+.fieldset label input:valid:focus,
+.fieldset label option:valid:focus,
+.fieldset label select#list:valid:focus {
+  border: 0.1em solid #555;
+}
 .fieldset label input:focus:invalid,
 .fieldset label option:focus:invalid,
-.fieldset label select#list:focus:invalid,
-.fieldset label input:valid:focus:invalid,
-.fieldset label option:valid:focus:invalid,
-.fieldset label select#list:valid:focus:invalid,
-.fieldset label input:valid:not(#list):invalid,
-.fieldset label option:valid:not(#list):invalid,
-.fieldset label select#list:valid:not(#list):invalid {
+.fieldset label select#list:focus:invalid {
   border: 0.1em solid #d21010;
 }
 .fieldset label input:focus:invalid ~ .placeholder,
 .fieldset label option:focus:invalid ~ .placeholder,
-.fieldset label select#list:focus:invalid ~ .placeholder,
-.fieldset label input:valid:focus:invalid ~ .placeholder,
-.fieldset label option:valid:focus:invalid ~ .placeholder,
-.fieldset label select#list:valid:focus:invalid ~ .placeholder,
-.fieldset label input:valid:not(#list):invalid ~ .placeholder,
-.fieldset label option:valid:not(#list):invalid ~ .placeholder,
-.fieldset label select#list:valid:not(#list):invalid ~ .placeholder {
+.fieldset label select#list:focus:invalid ~ .placeholder {
   color: #d21010;
 }
 .fieldset label input ~ .placeholder,
@@ -155,18 +160,37 @@ body * {
   top: 1em;
   line-height: 0em;
   font-weight: 600;
-  padding: var(--screen) 0;
-  text-indent: var(--screen);
-  transition: var(--transition);
-  cursor: pointer;
+  padding: 1em 0;
+  text-indent: 1em;
+  -webkit-transition: 0.1s ease;
+  transition: 0.1s ease;
 }
-.fieldset label .placeholder_out ~ .placeholder {
+.fieldset label .placeholder_in {
+  border: 0.1em solid #abb4bd !important;
+}
+.fieldset label .placeholder_in ~ .placeholder {
   top: 0 !important;
   font-weight: 400 !important;
   font-size: 70% !important;
 }
-.fieldset label .tel[value='']:valid {
-  border: 0.1em solid #d21010 !important;
+.fieldset label .placeholder_in:focus {
+  border: 0.1em solid #555 !important;
+}
+.fieldset label .placeholder_out {
+  border: 0.1em solid #abb4bd !important;
+}
+.fieldset label .placeholder_out ~ .placeholder {
+  top: 1em !important;
+  font-weight: 600 !important;
+  font-size: 100% !important;
+}
+.fieldset label .placeholder_out:focus {
+  border: 0.1em solid #555 !important;
+}
+.fieldset label .placeholder_out:focus ~ .placeholder {
+  top: 0 !important;
+  font-weight: 400 !important;
+  font-size: 70% !important;
 }
 .fieldset label input[required] + span:after {
   content: '\2731';
@@ -179,6 +203,8 @@ body * {
   top: 0;
 }
 .form .gender {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 3em;
   width: 100%;
@@ -193,7 +219,9 @@ body * {
   left: calc(50% - 1.8em);
 }
 .form .gender label {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   cursor: pointer;
 }
 .form .gender label:first-child {
@@ -213,11 +241,14 @@ body * {
 }
 .form .gender label input {
   margin: 0;
-  flex: none;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
   width: 1em;
   height: 1.8em;
   cursor: pointer;
   opacity: 0;
+  -webkit-transition: none;
   transition: none;
 }
 .form .gender label input:checked {
@@ -241,10 +272,15 @@ body * {
   color: #5b50c6;
 }
 .form .someinfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 0 0 auto;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .form .someinfo .img {
   width: 7em;
@@ -258,7 +294,9 @@ body * {
   margin: 0;
   padding: 0 0 0 3em;
   width: calc(100% - 7em);
-  flex: 1 0 9em;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 9em;
+          flex: 1 0 9em;
 }
 .form .someinfo ol li {
   margin-bottom: 1.5em;
@@ -285,7 +323,8 @@ body * {
   margin: 2em 0;
   margin-right: -2.7em;
   text-transform: uppercase;
-  transition: var(--transition);
+  -webkit-transition: 0.1s ease;
+  transition: 0.1s ease;
 }
 .form .photo label:hover {
   background-color: #ffb700;
@@ -332,9 +371,15 @@ body * {
   cursor: pointer;
 }
 .form .agree label input:checked + .yes {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #f1f1f1;
   box-shadow: inset 1px 2px 1px #ecdfbe;
 }
@@ -352,7 +397,8 @@ body * {
   color: #fff;
   padding: 1em;
   cursor: pointer;
-  transition: var(--transition);
+  -webkit-transition: 0.1s ease;
+  transition: 0.1s ease;
 }
 .form button[type="submit"]:hover {
   background: #5b50c6;

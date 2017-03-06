@@ -1,25 +1,25 @@
 .form
 	
 	.someinfo 
-		display: flex;
-		justify-content: center;
-		margin: 0 0 auto;
-		flex-wrap: wrap;
-		
-		
+		display flex
+		justify-content center
+		margin 0 0 auto
+		flex-wrap wrap
+
 		.img
-			width: 7em;
-			height: 7em;
-			background: url(/img/pic.png) center top no-repeat;
-			background-size: contain;
-			margin-bottom: 2em;
+			min-width 7em
+			width 33%
+			height 7em
+			background url('/img/pic.png') center top no-repeat
+			background-size contain
+			margin-bottom 2em
 
 		ol 
 			font-weight 600
 			margin 0
 			padding 0 0 0 3em
-			width: calc(100% - 7em);
-			flex: 1 0 9em;
+			width calc(100% - 7em)
+			flex 1 0 9em
 
 			li 
 				margin-bottom 1.5em
@@ -27,7 +27,7 @@
 
 			span 
 				font-weight 300
-						
+
 	.photo
 		margin 0 0 auto 0
 
@@ -46,7 +46,7 @@
 			margin 2em 0
 			margin-right -2.7em
 			text-transform uppercase
-			transition var(--transition)
+			transition $transition
 
 			&:hover
 				background-color #ffb700
@@ -62,7 +62,7 @@
 				height .8em
 				border-radius 0 0 .5em 0
 				z-index -1
-		
+
 			&:before
 				content ''
 				width calc(100% - 3em)
@@ -74,14 +74,14 @@
 				top 1.5em
 
 	.agree // согласен с условиями
-		margin: 0 0 3em 0;
+		margin 0 0 3em 0
 		label
 			cursor pointer
 			input //убираю родной чекбокс
 				display none
 				
 				& + .yes //замена на...
-					border .08em solid #abb4bd
+					border .08em solid $form_grey_light
 					border-radius .5em
 					width 1.7em
 					height 1.8em
@@ -93,12 +93,12 @@
 					display flex
 					justify-content center
 					align-items center
-					background-color: #f1f1f1;
-					box-shadow: inset 1px 2px 1px #ecdfbe;
-					
+					background-color #f1f1f1
+					box-shadow inset 1px 2px 1px #ecdfbe
+
 					&:after //галочка
 						content '√'
-					
+
 	button[type="submit"]
 		width 100%
 		text-align center
@@ -110,8 +110,7 @@
 		color #FFF
 		padding 1em
 		cursor pointer
-		transition var(--transition)
+		transition $transition
 		
 		&:hover
-			background:#5b50c6
-			
+			background #5b50c6

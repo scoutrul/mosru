@@ -1,6 +1,7 @@
 doctype html
 html(lang="en")
 	head
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 		<meta charset="UTF-8">
 		link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic")
 		title Форма для mos.ru
@@ -27,7 +28,7 @@ html(lang="en")
 								span
 								.placeholder Email
 							label
-								select#list(name="city" onChange="list.className='placeholder_in'")
+								select#list.placeholder_out(name="city" onChange="list.className='placeholder_in'")
 									option(selected disabled) 
 									option Москва	
 									option Санкт-Петербург	
@@ -58,8 +59,8 @@ html(lang="en")
 									span Не повторяйте за тем, кто повторяет
 						.photo
 							label
-								input(type="file") 
-								span Загрузить фото
+								input(type="file" accept="image/*" onChange="file_src.innerHTML = this.value") 
+								span#file_src Загрузить фото
 						.agree
 							label
 								input(type="checkbox" name="agree" checked)
@@ -67,6 +68,3 @@ html(lang="en")
 								span Я прочитал и соглашаюсь с <a href="">правилами</a> участия в акции.
 
 						button(type="submit") Участвовать
-
-	//- //- script(src="./form_err.js")
-	//- по нажатию на кнопку что бы всем required input давался класс .err
