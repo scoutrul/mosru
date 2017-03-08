@@ -1,9 +1,9 @@
 'use strict';
 
 var path = require('path');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var extractStyles = new ExtractTextPlugin("styles.css");
+var extractStyles = new ExtractTextPlugin('styles.css');
 
 module.exports = {
 
@@ -31,7 +31,7 @@ module.exports = {
       }],
 
       rules: [{
-               test: /\.styl$/,
+               test: /stylus.styl/,
                use: extractStyles.extract({
                      fallback: 'postcss-loader',
                      use: ['css-loader?importLoaders=1!postcss-loader', 'stylus-loader?resolve url']

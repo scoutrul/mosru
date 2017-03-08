@@ -48,6 +48,17 @@
 				transition $transition
 
 
+		input[required] // добаволяю звездочки *
+			~ span
+				&:after
+					content '✱'
+					height 1em
+					width 1em
+					display block
+					color $form_red
+					position absolute
+					right -1.5em
+					top 0
 
 		.placeholder_in
 			border .1em solid $form_grey_light !important	
@@ -71,19 +82,6 @@
 					font-weight 400  !important
 					font-size 70%  !important
 
-
-
-		input[required] // добаволяю звездочки *
-			span
-				&:after
-					content '✱'
-					height 1em
-					width 1em
-					display block
-					color $form_red
-					position absolute
-					right -1.5em
-					top 0
 
 
 				

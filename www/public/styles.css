@@ -1,3 +1,12 @@
+@media (max-width: 768px) {
+  .form_container .form section {
+    max-width: 100% !important;
+    -webkit-box-flex: 1 !important;
+    -webkit-flex: 1 0 auto !important;
+        -ms-flex: 1 0 auto !important;
+            flex: 1 0 auto !important;
+  }
+}
 * {
   position: relative;
   box-sizing: border-box;
@@ -5,10 +14,11 @@
 html,
 body {
   min-height: 100%;
-  height: 100%;
+  min-width: 100%;
 }
 body {
-  font-size: calc(1em + 0.1vw);
+  height: 100%;
+  font-size: calc(100% + 0.1vw);
   background-color: #856ed7;
   line-height: 2em;
   font-family: 'Roboto', sans-serif;
@@ -19,9 +29,9 @@ body {
 }
 body * {
   margin: 0;
-  font-size: calc(1em + 0.1vw);
+  font-size: calc(100% + 0.1vw);
 }
-.form_container {
+main.form_container {
   height: inherit;
   min-height: 100%;
   display: -webkit-box;
@@ -30,8 +40,9 @@ body * {
   display: flex;
   margin: auto auto 2em auto;
   padding: 2em;
+  margin: 0;
 }
-.form_container .form {
+main.form_container .form {
   min-height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -49,21 +60,21 @@ body * {
   background-color: #fff;
   border-radius: 0.3em;
   max-width: 1440px;
-  margin: auto;
+  margin: 0;
   box-shadow: 0 0 5em 0em #252471;
 }
-.form_container .form a {
+main.form_container .form a {
   text-decoration: none;
   color: #5b50c6;
 }
-.form_container .form section {
+main.form_container .form section {
   -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-flex: 1 0 50%;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
   height: inherit;
   max-width: 50%;
-  min-width: 300px;
+  min-width: 270px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -75,9 +86,13 @@ body * {
           flex-direction: column;
   padding: 2em;
 }
-.form_container .form section .container {
+main.form_container .form section .container {
   height: inherit;
   min-height: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -95,16 +110,19 @@ body * {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.form_container .form section .container legend {
+main.form_container .form section .container legend {
   padding: 0.3em 0 1em 5%;
   letter-spacing: -0.05em;
   font-size: 220%;
   font-weight: 900;
   color: #171b20;
-  white-space: nowrap;
 }
-.form_container .form section .container .fieldset {
-  height: 100%;
+main.form_container .form section .container .fieldset {
+  height: inherit;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -186,6 +204,16 @@ body * {
   -webkit-transition: 0.1s ease;
   transition: 0.1s ease;
 }
+.fieldset label input[required] ~ span:after {
+  content: '\2731';
+  height: 1em;
+  width: 1em;
+  display: block;
+  color: #d21010;
+  position: absolute;
+  right: -1.5em;
+  top: 0;
+}
 .fieldset label .placeholder_in {
   border: 0.1em solid #abb4bd !important;
 }
@@ -213,16 +241,6 @@ body * {
   font-weight: 400 !important;
   font-size: 70% !important;
 }
-.fieldset label input[required] span:after {
-  content: '\2731';
-  height: 1em;
-  width: 1em;
-  display: block;
-  color: #d21010;
-  position: absolute;
-  right: -1.5em;
-  top: 0;
-}
 .form .gender {
   display: -webkit-box;
   display: -webkit-flex;
@@ -234,7 +252,7 @@ body * {
 .form .gender:before {
   content: '';
   width: 3.6em;
-  height: 2.06em;
+  height: 1.96em;
   border: 0.1em solid #8a7d7d;
   border-radius: 3em;
   position: absolute;
@@ -319,8 +337,8 @@ body * {
 }
 .form .someinfo ol {
   font-weight: 600;
-  margin: 0;
-  padding: 0 0 0 3em;
+  padding: 0;
+  margin: 0 0 0 3em;
   width: calc(100% - 7em);
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 9em;
@@ -434,9 +452,4 @@ body * {
 }
 .form button[type="submit"]:hover {
   background: #5b50c6;
-}
-@media (max-width: 768px) {
-  .form_container .form section {
-    max-width: 100%;
-  }
 }
