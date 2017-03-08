@@ -4,13 +4,14 @@
 }
 html,
 body {
+  min-height: 100%;
   height: 100%;
 }
 body {
+  font-size: calc(1em + 0.1vw);
   background-color: #856ed7;
   line-height: 2em;
   font-family: 'Roboto', sans-serif;
-  font-size: calc(100% + 0.1vw);
   margin: 0;
   background: -webkit-linear-gradient(-45deg, #856ed8 0%, #2329ae 100%) fixed;
   font-weight: 300;
@@ -18,10 +19,13 @@ body {
 }
 body * {
   margin: 0;
+  font-size: calc(1em + 0.1vw);
 }
 .form_container {
-  height: 100%;
+  height: inherit;
+  min-height: 100%;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin: auto auto 2em auto;
@@ -31,14 +35,17 @@ body * {
   min-height: 100%;
   width: 100%;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   background-color: #fff;
   border-radius: 0.3em;
   max-width: 1440px;
@@ -51,29 +58,40 @@ body * {
 }
 .form_container .form section {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: inherit;
+  max-width: 50%;
+  min-width: 300px;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 2em;
 }
 .form_container .form section .container {
-  height: 100%;
+  height: inherit;
+  min-height: 100%;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
   -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
@@ -88,22 +106,24 @@ body * {
 .form_container .form section .container .fieldset {
   height: 100%;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   border: 0;
   padding: 0;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
 }
 .fieldset label {
-  height: 4.2em;
   margin: 0 0 1.5em 0;
 }
-.fieldset label input[type="password"] {
+.fieldset label input[type='password'] {
   background: url("/img/eye.png") right no-repeat;
 }
 .fieldset label select#list {
@@ -119,6 +139,7 @@ body * {
   box-shadow: none;
   padding: 1em 0;
   -webkit-box-flex: 1;
+  -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
   width: 100%;
@@ -192,7 +213,7 @@ body * {
   font-weight: 400 !important;
   font-size: 70% !important;
 }
-.fieldset label input[required] + span:after {
+.fieldset label input[required] span:after {
   content: '\2731';
   height: 1em;
   width: 1em;
@@ -204,6 +225,7 @@ body * {
 }
 .form .gender {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   height: 3em;
@@ -220,6 +242,7 @@ body * {
 }
 .form .gender label {
   -webkit-box-flex: 1;
+  -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
   cursor: pointer;
@@ -242,6 +265,7 @@ body * {
 .form .gender label input {
   margin: 0;
   -webkit-box-flex: 0;
+  -webkit-flex: none;
       -ms-flex: none;
           flex: none;
   width: 1em;
@@ -273,17 +297,21 @@ body * {
 }
 .form .someinfo {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0 0 auto;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 .form .someinfo .img {
-  width: 7em;
+  min-width: 7em;
+  width: 33%;
   height: 7em;
   background: url("/img/pic.png") center top no-repeat;
   background-size: contain;
@@ -295,6 +323,7 @@ body * {
   padding: 0 0 0 3em;
   width: calc(100% - 7em);
   -webkit-box-flex: 1;
+  -webkit-flex: 1 0 9em;
       -ms-flex: 1 0 9em;
           flex: 1 0 9em;
 }
@@ -372,12 +401,15 @@ body * {
 }
 .form .agree label input:checked + .yes {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
+  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   background-color: #f1f1f1;
@@ -402,4 +434,9 @@ body * {
 }
 .form button[type="submit"]:hover {
   background: #5b50c6;
+}
+@media (max-width: 768px) {
+  .form_container .form section {
+    max-width: 100%;
+  }
 }

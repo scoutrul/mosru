@@ -4,7 +4,7 @@
 		display flex
 		height 3em
 		width 100%
-		
+
 		&:before
 			content ''
 			width 3.6em
@@ -13,13 +13,13 @@
 			border-radius 3em
 			position absolute
 			left calc(50% - 1.8em)
-			
+
 		label
 			flex 1
 			cursor pointer
 			&:first-child
 				text-align right
-				
+
 				input
 					float right
 					margin 0 0 0 1em
@@ -27,12 +27,11 @@
 			&:last-child input
 				float left
 				margin 0 1em 0 0
-			
+
 			span
 				line-height 1.8em
 				word-break break-all
-				
-				
+
 			input // переключатель мальчик/девочка
 				margin 0
 				flex none
@@ -42,7 +41,6 @@
 				opacity 0
 				transition none
 
-				
 				&:checked // если вкл, то показать
 					opacity 1
 					&:after

@@ -6,8 +6,24 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var extractStyles = new ExtractTextPlugin("styles.css");
 
 module.exports = {
+
     entry: './app/index',
     
+    output: {
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'public')
+    },
+
+    watch: true,
+
+    // devtool: 'source-map',
+
+    devServer: {
+      contentBase: './public',
+      hot: true,
+      inline: true
+    },
+
     module: {
       loaders: [{
         test: /\.html$/,
@@ -33,23 +49,10 @@ module.exports = {
         new HtmlWebpackPlugin({ 
           filename: 'index.html',
           template: './app/index.pug'
-        }),
-        require('autoprefixer')
+        })
     ],
 
-    watch: true,
-
-    // devtool: 'source-map',
-
-    devServer: {
-      contentBase: './public',
-      hot: true,
-      inline: true
-    }
 
 
-    ,output: {
-      filename: 'bundle.js',
-      path: path.resolve(__dirname, 'public')
-    }
+
 }
