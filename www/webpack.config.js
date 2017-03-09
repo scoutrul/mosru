@@ -1,5 +1,6 @@
 'use strict';
 var webpack = require('webpack');
+// var _ = require('lodash');
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -7,10 +8,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
-	entry: path.resolve(__dirname, './app/script'),
+	entry: path.resolve(__dirname, './app/script.js'),
 	
 	output: {
-		filename: '[name].js',
+		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'public')
 	},
 
@@ -19,24 +20,26 @@ module.exports = {
 	// devtool: 'source-map',
 
 	devServer: {
-		contentBase: './public',
+		contentBase: './public/',
 		hot: true,
 		inline: true
 	},
 
 	module: {
-
+		loaders: [],
 		rules: [{
-			   	test: /stylus.styl/,
-			   	use: ExtractTextPlugin.extract({
+					test: /\.styl$/,
+					use: ExtractTextPlugin.extract({
 					 	fallback: 'postcss-loader',
-					 	use: ['css-loader?importLoaders=1!postcss-loader', 'stylus-loader?resolve url']
-					 })
+					 	use: ['css-loader?importLoaders=1!postcss-loader', 'stylus-loader']
+					 }),
+					exclude: /(node_modules)/
 			 	},
 				{
 					test: /\.pug$/,
-					loader: 'pug-loader'
-				}
+					loader: 'pug-loader',
+					exclude: /(node_modules)/
+				},
 				 
 		  ]},
 		plugins: [
@@ -50,6 +53,7 @@ module.exports = {
 				compress: {
 					warnings: false
 				}
-			})
-		],
+			}),
+			new webpack.NoEmitOnErrorsPlugin(),
+		]
 }

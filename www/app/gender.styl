@@ -1,60 +1,95 @@
-.form
+.gender
+	margin: 0 auto;
+	padding: 1em 0;
+	width: 100%;
 	
-	.gender
-		display flex
-		height 3em
-		width 100%
-
-		&:before
-			content ''
-			width 3.6em
-			height 1.96em
-			border .1em solid #8a7d7d
-			border-radius 3em
-			position absolute
-			left calc(50% - 1.8em)
-
-		label
-			flex 1
-			cursor pointer
-			&:first-child
-				text-align right
-
-				input
-					float right
-					margin 0 0 0 1em
-
-			&:last-child input
-				float left
-				margin 0 1em 0 0
-
+	.switch 
+		height: 2.1em;
+		margin 0
+		width: 100%;
+		span
+			width 50%
+			display block
+			line-height 2.1em
+			text-align right
+			float left	
+			padding: 0 2.4em 0 0;
+			
+		& label:last-child
 			span
-				line-height 1.8em
-				word-break break-all
-
-			input // переключатель мальчик/девочка
-				margin 0
-				flex none
-				width 1em
-				height 1.8em
-				cursor pointer
-				opacity 0
-				transition none
-
-				&:checked // если вкл, то показать
-					opacity 1
-					&:after
-						content ''
-						opacity 1
-						display inline-block
-						width 1.6em
-						height 1.6em
-						border-radius 100%
-						background-color #5b50c6
-						border .1em solid #FFF
-						position absolute
-						left calc(50% + -0.8em)
-						top calc(50% + -0.8em)
-						z-index 20
+				float right 
+				text-align left
+				padding: 0 0 0 2.4em
+				
+		label
+			position: absolute;
+			top: 0;
+			left: 0
+			bottom: 0;
+			right: 0;
+			cursor pointer
+			height: 2.1em;
+			margin auto
+			
+			.slider 
+				position: absolute;
+				cursor: pointer;
+				top: calc(50% - 1.1em);
+				left: calc(50% - 1.8em);
+				transition: .4s;
+				width: 3.6em;
+				height: 2.1em;
+				box-shadow: inset 0px 0px 0px 0.1em #8a7d7d;
+				border-radius: 3em;
+						
+				&:before 
+					z-index 10
+					opacity 10
+					position: absolute;
+					content: "";
+					width: 1.8em;
+					height: 1.8em;
+					left: .05em;
+					top: calc(50% - .9em);
+					background-color: #5b50c6;
+					transition: $transition;
+					border-radius: 50%;
+					// display none
+			
+			input
+				position absolute
+				top 0
+				left calc(50% - 1.8em)
+				z-index: 11;
+				width: 50%
+				height: 2.1em;
+				cursor: pointer;
+				opacity: 0;
+				&:checked
+					z-index 0
 					& ~ span
-						color #5b50c6
+						color: #5b50c6
+						
+				& ~ .slider:before 
+					opacity 0
+					z-index 10
+					display block
+			&:first-child
+				input 
+					left 0
+					& ~ .slider:before 
+						transform: translateX(1.6em);
+					&:checked
+						& ~ .slider:before 
+							transform: translateX(.1em);
+							opacity 1
+			&:last-child
+				input 
+					right 0
+					& ~ .slider:before 
+						transform: translateX(.1em);
+					&:checked
+						& ~ .slider:before 
+							transform: translateX(1.6em);
+							opacity 1
+				

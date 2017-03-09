@@ -1,6 +1,6 @@
 .fieldset
 		
-	label
+	>label
 		margin 0 0 1.5em 0
 
 		input[type='password'] 
@@ -23,6 +23,7 @@
 			border-radius .3em
 			outline none
 			transition $transition
+			box-shadow: inset 0 0 0 4em #fff;
 
 			&:valid
 				~ .placeholder
@@ -46,6 +47,8 @@
 				padding 1em 0
 				text-indent 1em
 				transition $transition
+				
+			
 
 
 		input[required] // добаволяю звездочки *
