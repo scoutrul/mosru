@@ -38,9 +38,7 @@ for (var i = 0; i < inputs.length; i++) {
 	here.onclick  = function() {
 		this.value !== '' ? this.className='placeholder_in' : this.className='placeholder_out';
 	};
-	here.onfocus  = function() {
-		this.value !== '' ? this.className='placeholder_in' : this.className='placeholder_out';
-	};
+
 	here.onchange = function() {
 		this.value !== '' ? this.className='placeholder_in' : this.className='placeholder_out';
 	};
