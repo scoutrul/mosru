@@ -5,7 +5,6 @@ html(lang="en")
 		<meta charset="UTF-8">
 		link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic")
 		title Форма для mos.ru
-
 	body
 
 		main.form_container
@@ -15,22 +14,22 @@ html(lang="en")
 						legend Ваши данные
 						div.fieldset
 							label
-								input(type="text" name="fio" autofocus required)
+								input#fio(type="text" autofocus required)
 								span
 								.placeholder Введите ФИО
 
 							label
-								input(type="password" name="pass" required)
+								input#pass(type="password" required)
 								span
 								.placeholder Пароль
 
 							label
-								input(type="text" name="email" required )
+								input#email(type="text" required )
 								span
 								.placeholder Email
 
 							label
-								select#list.placeholder_out(name="city")
+								select#list.placeholder_out
 									option(selected disabled) 
 									option Москва	
 									option Санкт-Петербург	
@@ -38,7 +37,7 @@ html(lang="en")
 								.placeholder Город
 
 							label
-								input#tel.placeholder_out(type="tel" name="phone")
+								input#tel.placeholder_out(type="number" name="phone")
 								span
 								.placeholder Телефон
 
