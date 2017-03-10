@@ -14,22 +14,22 @@ html(lang="en")
 						legend Ваши данные
 						div.fieldset
 							label
-								input#fio(type="text" autofocus required)
+								input#fio.test(type="text" autofocus required)
 								span
 								.placeholder Введите ФИО
 
 							label
-								input#pass(type="password" required)
+								input#pass.test(type="password" required)
 								span
 								.placeholder Пароль
 
 							label
-								input#email(type="text" required )
+								input#email.test(type="text" required )
 								span
 								.placeholder Email
 
 							label
-								select#list.placeholder_out
+								select#list.test.placeholder_out
 									option(selected disabled) 
 									option Москва	
 									option Санкт-Петербург	
@@ -37,7 +37,7 @@ html(lang="en")
 								.placeholder Город
 
 							label
-								input#tel.placeholder_out(type="number" name="phone")
+								input#tel.test.placeholder_out(type="tel")
 								span
 								.placeholder Телефон
 
