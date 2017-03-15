@@ -18,21 +18,28 @@ for (var i = 0; i < inputs.length; i++) {
 	};
 }
 
-var passInput = document.getElementById('pass');
+// Eye on password, show input value
+
+var eyeShow = document.getElementById('showPass');
 var showPass = false;
 
-document.getElementById('showPass').onclick = function(){
+eyeShow.onclick = function(){
 
-	if (showPass){
-		passInput.style.backgroundImage = "url('/img/eye-a.svg')";
-		passInput.type = "password";
-	}
-	else {
-		passInput.style.backgroundImage = "url('/img/eye-b.svg')";
-		passInput.type = "text";
-	}
+	var passInput = document.getElementById('pass');
+	
+	var passState = {
 
+		hide: function(){
+			passInput.style.backgroundImage = "url('/mosru/img/eye-a.svg')";
+			passInput.type = "password";
+		},
+		show: function(){
+			passInput.style.backgroundImage = "url('/mosru/img/eye-b.svg')";
+			passInput.type = "text";
+		}
+	};
+
+	!(showPass) ? passState.show() : passState.hide();
 
 	showPass = !showPass;
-	console.log(showPass)
 };
