@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "webpack --progress --colors | webpack-dev-server --hot --inline --config webpack.config.js",
-    "test": "webpack --progress --colors"
+    "dev": "webpack-dev-server --hot --inline --config webpack.config.js"
   },
   "devDependencies": {
     "css-loader": "^0.26.2",
